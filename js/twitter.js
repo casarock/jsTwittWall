@@ -1,5 +1,5 @@
 var myTwitter;
-var twitterApiUrl = 'http://api.twitter.com/1/casarock/lists/mm/statuses.json';
+var twitterApiUrl = 'http://search.twitter.com/search.json?q=%23bcruhr';
 
 function updateTimeline() {
     
@@ -19,7 +19,7 @@ function Twitter() {
     this.getTweets = function(twitterUrl, sinceId) {
 
         var isUpdate = false;
-        twitterUrl += "?callback=?"; // JsonP needs a callback.
+        twitterUrl += "&callback=?"; // JsonP needs a callback.
         
         // if sinceId is given, just get new tweets!
         if (typeof(sinceId) !== 'undefined') {
@@ -35,7 +35,7 @@ function Twitter() {
             jsonp: 'processTweets',
             url: twitterUrl, //
             success: function(resp) {
-                processTweets(resp, isUpdate, sinceId);
+                processTweets(resp.results, isUpdate, sinceId);
             }
         }
 
@@ -58,9 +58,9 @@ function Twitter() {
 
             tweetData.push({
                 id: tweet.id,
-                username: tweet.user.name,
+                username: tweet.from_user_name,
                 tweetText: tweet.text,
-                profileImg: tweet.user.profile_image_url
+                profileImg: tweet.profile_image_url
             });
 
         });
