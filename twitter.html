@@ -17,16 +17,17 @@
                 </table>
             </div>
         </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                myTwitter = new Twitter();
-                myTwitter.getTweets(twitterApiUrl);
-                setInterval(updateTimeline, 30*1000);
-            });
-        </script>
 </head>
 <body style="overflow:hidden;">
     <div id="tweets"></div>
     <div id="footer"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            myTwitter = new Twitter();
+            myTwitter.getTweets(twitterApiUrl);
+            setInterval(updateTimeline, 30*1000);
+        });
+    </script>
 </body>
 </html>
