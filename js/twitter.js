@@ -1,6 +1,3 @@
-var myTwitter;
-var twitterApiUrl = 'http://search.twitter.com/search.json?q=' + encodeURIComponent('#epic');
-
 function updateTimeline() {
     
     var latest = myTwitter.getLatestId();

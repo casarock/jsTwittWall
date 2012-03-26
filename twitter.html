@@ -23,6 +23,9 @@
     <div id="footer"></div>
 
     <script type="text/javascript">
+        var myTwitter;
+        var twitterApiUrl = 'http://search.twitter.com/search.json?q=' + encodeURIComponent('#epic');
+        
         $(document).ready(function() {
             myTwitter = new Twitter();
             myTwitter.getTweets(twitterApiUrl);
