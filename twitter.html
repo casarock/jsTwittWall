@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jsTwittwall</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link type="text/css" rel='stylesheet' href="css/twittwall.css" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/twitter.js"></script>
+        <script type="text/javascript" src="js/icanhaz.min.js"></script>
+        <script id="tmplTweet" type="text/html">
+            <div id="{{ id }}" style="min-height:48px;" class="tweet">
+                <table>
+                    <tr>
+                        <td><img src="{{ profileImg }}" style="max-width: 150px; float: left; margin-left: 20px;" valign="absmiddle" /></td>
+                        <td style="padding-left:10px;"><p>{{ tweetText }}</p></td>
+                    </tr>
+                </table>
+            </div>
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                myTwitter = new Twitter();
+                myTwitter.getTweets(twitterApiUrl);
+                setInterval(updateTimeline, 30*1000);
+            });
+        </script>
+</head>
+<body style="overflow:hidden;">
+    <div id="tweets"></div>
+    <div id="footer"></div>
+</body>
+</html>
